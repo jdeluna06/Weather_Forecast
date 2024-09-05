@@ -58,7 +58,7 @@ const promptFunc = async (input: string) => {
     const promptInput = await template.format({location:input});
     // Call the model with the formatted prompt
     const res = await model.invoke(promptInput)
-    if (typeof res !== 'string') {
+    if (typeof res === 'string') {
       return JSON.parse(res);
     }
     // Return the JSON response
